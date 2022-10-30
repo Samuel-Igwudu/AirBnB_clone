@@ -5,7 +5,7 @@ class user
 from models.base_model import BaseModel
 
 
-def User(BaseModel):
+class User(BaseModel):
     """ attributes of user """
     email = ""
     password = ""

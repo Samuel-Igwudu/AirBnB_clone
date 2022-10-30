@@ -5,7 +5,7 @@ class place
 from models.base_model import BaseModel
 
 
-def Place(BaseModel):
+class Place(BaseModel):
     """ place attribute """
     city_id = ""
     user_id = ""
