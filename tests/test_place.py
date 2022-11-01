@@ -18,7 +18,7 @@ from models import storage
 
 class TestPlace(unittest.TestCase):
 
-    """Test Cases for the City class."""
+    """Test Cases for the Place class."""
 
     def setUp(self):
         """Sets up test methods."""
@@ -36,7 +36,7 @@ class TestPlace(unittest.TestCase):
             os.remove(FileStorage._FileStorage__file_path)
 
     def test_instance(self):
-        """Tests instantiation of City class."""
+        """Tests instantiation of Place class."""
 
         b = Place()
         self.assertEqual(str(type(b)), "<class 'models.place.Place'>")
