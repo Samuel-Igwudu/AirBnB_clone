@@ -47,19 +47,41 @@ class TestFileStorage(unittest.TestCase):
         msg = "FileStorage() takes no arguments"
         self.assertEqual(str(e.exception), msg)
 
-    # def help_test_all(self, classname):
-    #     """Helper tests all() method for classname."""
-    #     self.resetStorage()
-    #     self.assertEqual(storage.all(), {})
+    def test_save_no_args(self):
+        """Tests save() with no arguments."""
+        self.resetStorage()
+        with self.assertRaises(TypeError) as e:
+            FileStorage.save()
+        msg = "FileStorage.save() missing 1 required\
+            positional argument: 'self'"
+        self.assertEqual(str(e.exception), msg)
 
-    #     o = storage.classes()[classname]()
-    #     storage.new(o)
-    #     key = "{}.{}".format(type(o).__name__, o.id)
-    #     self.assertTrue(key in storage.all())
-    #     self.assertEqual(storage.all()[key], o)
+    def test_save_excess_args(self):
+        """Tests save() with too many arguments."""
+        self.resetStorage()
+        with self.assertRaises(TypeError) as e:
+            FileStorage.save(self, 98)
+        msg = "FileStorage.save() takes 1 positional\
+            argument but 2 were given"
+        self.assertEqual(str(e.exception), msg)
 
-    # def test_all_base_model(self):
-    #     """Tests all() method for BaseModel."""
-    #     self.help_test_all("BaseModel")
+    def test_reload_no_args(self):
+        """Tests reload() with no arguments."""
+        self.resetStorage()
+        with self.assertRaises(TypeError) as e:
+            FileStorage.reload()
+        msg = "FileStorage.reload() missing 1 required\
+            positional argument: 'self'"
+        self.assertEqual(str(e.exception), msg)
 
-    
+    def test_reload_excess_args(self):
+        """Tests reload() with too many arguments."""
+        self.resetStorage()
+        with self.assertRaises(TypeError) as e:
+            FileStorage.reload(self, 98)
+        msg = "FileStorage.reload() takes 1 positional\
+            argument but 2 were given"
+        self.assertEqual(str(e.exception), msg)
+
+    if __name__ == "__main__":
+        unittest.main()
