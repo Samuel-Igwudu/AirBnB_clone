@@ -16,7 +16,7 @@ from models.engine.file_storage import FileStorage
 from models import storage
 
 
-class TestCity(unittest.TestCase):
+class TestPlace(unittest.TestCase):
 
     """Test Cases for the City class."""
 
