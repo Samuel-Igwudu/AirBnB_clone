@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This module tests the place model for edge cases
+"""This module tests the review model for edge cases
 """
 import time
 import json
@@ -18,7 +18,7 @@ from models import storage
 
 class TestReview(unittest.TestCase):
 
-    """Test Cases for the City class."""
+    """Test Cases for the Review class."""
 
     def setUp(self):
         """Sets up test methods."""
@@ -36,7 +36,7 @@ class TestReview(unittest.TestCase):
             os.remove(FileStorage._FileStorage__file_path)
 
     def test_instance(self):
-        """Tests instantiation of City class."""
+        """Tests instantiation of Review class."""
 
         b = Review()
         self.assertEqual(str(type(b)), "<class 'models.review.Review'>")
