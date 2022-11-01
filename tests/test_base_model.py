@@ -2,7 +2,9 @@
 """This module tests the base model for edge cases
 """
 
+
 import sys
+sys.path.append("..")
 import unittest
 from datetime import datetime as datetime
 from models.base_model import BaseModel
@@ -11,9 +13,6 @@ import json
 import uuid
 import os
 import re
-
-
-sys.path.append("..")
 
 
 class TestBaseModel(unittest.TestCase):
