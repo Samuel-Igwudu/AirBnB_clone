@@ -51,7 +51,7 @@ class TestBaseModel(unittest.TestCase):
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             BaseModel.__init__()
-        msg = "__init__() missing 1 required parameter: 'self'"
+        msg = "BaseModel.__init__() missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), msg)
 
     def test_str(self):
@@ -68,7 +68,7 @@ class TestBaseModel(unittest.TestCase):
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             BaseModel.save()
-        msg = "save() missing 1 required argument"
+        msg = "BaseModel.save() missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), msg)
 
     def test_save_parameters(self):
@@ -76,7 +76,7 @@ class TestBaseModel(unittest.TestCase):
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             BaseModel.save(self, "Parameter")
-        msg = "save() takes 1 argument more arguments are passed"
+        msg = "BaseModel.save() takes 1 positional argument but 2 were given"
         self.assertEqual(str(e.exception), msg)
 
     def test_to_dict(self):
@@ -96,7 +96,7 @@ class TestBaseModel(unittest.TestCase):
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             BaseModel.to_dict()
-        msg = "to_dict() missing 1 required parameter: 'self'"
+        msg = "BaseModel.to_dict() missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), msg)
 
     def test_3_to_dict_more_parameters(self):
@@ -104,7 +104,7 @@ class TestBaseModel(unittest.TestCase):
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             BaseModel.to_dict(self, "work", "serve", "love")
-        msg = "to_dict() takes 1 parameter but more are passed"
+        msg = "BaseModel.to_dict() takes 1 positional argument but 4 were given"
         self.assertEqual(str(e.exception), msg)
 
     def test_instantiation_process(self):
@@ -115,7 +115,6 @@ class TestBaseModel(unittest.TestCase):
         b_json = b.to_dict()
         b_new = BaseModel(**b_json)
         self.assertEqual(b_new.to_dict(), b.to_dict())
-
 
 if __name__ == '__main__':
     unittest.main()
