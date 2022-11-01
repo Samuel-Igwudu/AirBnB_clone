@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This module tests the city model for edge cases
+"""This module tests the place model for edge cases
 """
 import time
 import json
